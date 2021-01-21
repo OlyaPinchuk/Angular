@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "untitled"
+  "defaultProject": "untitled",
+  "cli": {
+    "analytics": false
+  }
 }
