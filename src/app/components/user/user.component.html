@@ -3,14 +3,10 @@
   {{user.name}}
   {{user.email}}
   {{user.username }}
+  <button (click)="getUser(user)" > chose </button>
+
   <a [routerLink]="[user.id]">more info</a>
 
-<!--  <button (click)="getUser(user)" > <a [routerLink]="['link', 'posts']">-->
-
-<!--    more info</a>-->
-<!--  </button>-->
-
-<!--  <button (click)="getUser(user)" > - click here</button>-->
   <hr/>
 </div>
 

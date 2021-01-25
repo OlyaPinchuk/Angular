@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from '../../models/User';
+import {ActivatedRoute} from '@angular/router';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-full-user',
@@ -8,13 +10,16 @@ import {User} from '../../models/User';
 })
 export class FullUserComponent implements OnInit {
 
+  fulluser: User;
 
-  @Input()
-  chosenUser: User;
-
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute, private userService: UserService) {
+    // console.log(this.activatedRoute.params);
+  }
 
   ngOnInit(): void {
+     this.activatedRoute.params.subscribe(value => {
+       this.userService.getUserById(value.id).subscribe(result => this.fulluser = result);
+     }) ;
   }
 
 }

@@ -9,16 +9,16 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class PostsComponent implements OnInit {
 
-  posts: any[];
+  // posts: any[];
 
   constructor(private postService: UserService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(value => {
-      this.postService.getAllPosts(value.id).subscribe(value => this.posts = value);
-
-    });
+    // this.activatedRoute.params.subscribe(value => {
+    //   this.postService.getAllPosts(value.id).subscribe(value => this.posts = value);
+    //
+    // });
   }
 
 }

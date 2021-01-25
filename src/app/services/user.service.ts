@@ -17,6 +17,12 @@ export class UserService {
 
   }
 
+  getUserById(id): Observable<User> {
+    return this
+      .httpClient
+      .get<User>(`https://jsonplaceholder.typicode.com/users/${id}`);
+  }
+
   getAllPosts(): Observable<any[]> {
     return this
       .httpClient

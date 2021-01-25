@@ -22,7 +22,7 @@ import { PostsComponent } from './components/posts/posts.component';
     HttpClientModule,
     RouterModule.forRoot([{
       path: 'link/users', component: UsersComponent, children: [
-        {path: ':id', component: PostsComponent}]
+        {path: ':id', component: FullUserComponent}]
     },
 
     ])
