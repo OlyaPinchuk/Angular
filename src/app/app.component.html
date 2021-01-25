@@ -1,1 +1,10 @@
-<app-users></app-users>
+<!--<div *ngFor="let u of users">-->
+<!--  <app-user  [user] = "u"> </app-user>-->
+<!--</div>-->
+
+<ul>
+  <li><a [routerLink]="['link', 'home']"> home </a>> </li>
+  <li><a [routerLink]="['link', 'users']"> users </a>> </li>
+</ul>
+
+<router-outlet></router-outlet>
