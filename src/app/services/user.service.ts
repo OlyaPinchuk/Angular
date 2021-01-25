@@ -10,10 +10,16 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllUsers():Observable<User[]> {
+  getAllUsers(): Observable<User[]> {
     return this
       .httpClient
       .get<User[]>('https://jsonplaceholder.typicode.com/users');
 
+  }
+
+  getAllPosts(): Observable<any[]> {
+    return this
+      .httpClient
+      .get<any[]>('https://jsonplaceholder.typicode.com/posts');
   }
 }

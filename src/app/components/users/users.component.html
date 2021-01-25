@@ -1,4 +1,7 @@
-<h3> {{chosenUser?.id}} - {{chosenUser?.name}} - {{chosenUser?.email}} </h3>
+<h3> {{chosenUser?.id}} {{chosenUser?.name}} {{chosenUser?.email}} </h3>
 
 <app-user *ngFor = 'let u of users' [user]="u" (bubbleUpUser)="getBubbleUser($event)" >
+
 </app-user>
+
+<router-outlet></router-outlet>
