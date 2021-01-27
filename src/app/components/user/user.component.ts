@@ -12,16 +12,10 @@ export class UserComponent implements OnInit {
 
   @Input()
   user: User;
-  @Output()
-  bubbleUpUser = new EventEmitter();
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-  }
-
-  getUser(user: User): void {
-    this.bubbleUpUser.emit(user);
   }
 
   goToUser(): void{

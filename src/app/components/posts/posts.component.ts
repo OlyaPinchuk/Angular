@@ -16,14 +16,13 @@ export class PostsComponent implements OnInit {
   posts: any[];
   chosenPost: any;
 
-  constructor(private postService: UserService, private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-      this.postService.getAllPosts().subscribe(value => this.posts = value);
-      this.activatedRoute.params.subscribe(value => {
-        this.postService.getUserPosts(value.id).subscribe(result => this.userPosts = result);
-      })
+      this.activatedRoute.data.subscribe(value => {
+        this.posts = value.postsData;
+      });
   }
 
   getBubbledPost(post: any): void {

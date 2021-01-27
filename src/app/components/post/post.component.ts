@@ -1,4 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Post} from '../../models/Post';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-post',
@@ -9,16 +11,16 @@ export class PostComponent implements OnInit {
 
   @Input()
   post: any;
-  @Output()
-  bubbleUpPost = new EventEmitter();
 
-  constructor() { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
 
-  getPost(post: any): void {
-    this.bubbleUpPost.emit(post);
+  goToPost(): void {
+    this.router.navigate([this.post.id], {
+      relativeTo: this.activatedRoute,
+      state: this.post});
   }
 
 }
