@@ -20,7 +20,7 @@ export class UsersComponent implements OnInit {
 
   }
   getBubbleUser(user: User): void {
-    console.log(user);
+    // console.log(user);
     this.chosenUser = user;
   }
 

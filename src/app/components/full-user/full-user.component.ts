@@ -10,7 +10,7 @@ import {UserService} from '../../services/user.service';
 })
 export class FullUserComponent implements OnInit {
 
-  fulluser: User;
+  fullUser: User;
 
   constructor(private activatedRoute: ActivatedRoute, private userService: UserService) {
     // console.log(this.activatedRoute.params);
@@ -18,7 +18,7 @@ export class FullUserComponent implements OnInit {
 
   ngOnInit(): void {
      this.activatedRoute.params.subscribe(value => {
-       this.userService.getUserById(value.id).subscribe(result => this.fulluser = result);
+       this.userService.getUserById(value.id).subscribe(result => this.fullUser = result);
      }) ;
   }
 

@@ -8,6 +8,8 @@ import { UserComponent } from './components/user/user.component';
 import {RouterModule} from '@angular/router';
 import { FullUserComponent } from './components/full-user/full-user.component';
 import { PostsComponent } from './components/posts/posts.component';
+import { HomeComponent } from './components/home/home.component';
+import { PostComponent } from './components/post/post.component';
 
 @NgModule({
   declarations: [
@@ -16,15 +18,17 @@ import { PostsComponent } from './components/posts/posts.component';
     UserComponent,
     FullUserComponent,
     PostsComponent,
+    HomeComponent,
+    PostComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot([{
-      path: 'link/users', component: UsersComponent, children: [
-        {path: ':id', component: FullUserComponent}]
-    },
-
+    RouterModule.forRoot([
+      {path: 'link/home', component: HomeComponent},
+      {path: 'link/users', component: UsersComponent, children: [
+        {path: ':id', component: FullUserComponent}]},
+      {path: 'link/posts', component: PostsComponent}
     ])
   ],
   providers: [],
