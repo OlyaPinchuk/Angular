@@ -7,5 +7,5 @@ import {users} from '../db/database';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  users = users;
+
 }

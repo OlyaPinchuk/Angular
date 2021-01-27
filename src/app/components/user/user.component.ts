@@ -1,4 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, Output, OnInit} from '@angular/core';
+import {User} from '../../models/User';
+import {EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -8,12 +10,18 @@ import {Component, Input, OnInit} from '@angular/core';
 export class UserComponent implements OnInit {
 
   @Input()
-  user;
-
+  user: User;
+  @Output()
+  bubbleUpUser = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  getUser(user: User): void {
+    this.bubbleUpUser.emit(user);
+  }
+
 
 }

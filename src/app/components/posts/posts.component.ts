@@ -12,7 +12,7 @@ export class PostsComponent implements OnInit {
 
   @Input()
   user: any = null;
-  userPosts: any[];
+  // userPosts: any[];
   posts: any[];
   chosenPost: any;
 
@@ -21,11 +21,6 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
       this.postService.getAllPosts().subscribe(value => this.posts = value);
-      // if (this.user !== null) {
-      //   console.log(this.user);
-      //   // this.userPosts = this.posts.filter(item => item.userId === this.user.id);
-      //   // console.log(this.userPosts);
-      // }
   }
   //
   // getUserPosts(id): void {

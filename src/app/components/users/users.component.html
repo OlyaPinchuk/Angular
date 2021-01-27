@@ -4,6 +4,8 @@
 
 </app-user>
 
-<app-posts [user]="chosenUser" ></app-posts>
+<div *ngIf="chosenUser">
+  <app-posts [user]="chosenUser" ></app-posts>
+</div>
 
 <router-outlet></router-outlet>
