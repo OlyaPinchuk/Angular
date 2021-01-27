@@ -5,6 +5,8 @@
   {{user.username }}
 <!--  <button (click)="getUser(user)" > choose user/show user's posts </button>-->
   <a [routerLink]="[user.id]">more info</a>
+    <span>  /  </span>
+  <a [routerLink]="[user.id, 'posts']">user's posts</a>
 
   <hr/>
 </div>

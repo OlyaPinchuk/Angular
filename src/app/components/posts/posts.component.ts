@@ -12,7 +12,7 @@ export class PostsComponent implements OnInit {
 
   @Input()
   user: any = null;
-  // userPosts: any[];
+  userPosts: any[];
   posts: any[];
   chosenPost: any;
 
@@ -21,13 +21,11 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
       this.postService.getAllPosts().subscribe(value => this.posts = value);
+      this.activatedRoute.params.subscribe(value => {
+        this.postService.getUserPosts(value.id).subscribe(result => this.userPosts = result);
+      })
   }
-  //
-  // getUserPosts(id): void {
-  //   id = this.user.id;
-  //   this.userPosts = this.posts.filter(item => item.userId === id);
-  //   console.log(this.userPosts);
-  // }
+
   getBubbledPost(post: any): void {
     this.chosenPost = post;
   }

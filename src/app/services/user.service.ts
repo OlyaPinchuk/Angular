@@ -28,9 +28,9 @@ export class UserService {
       .httpClient
       .get<any[]>('https://jsonplaceholder.typicode.com/posts');
   }
-  // getUserPosts(id): Observable<any[]>{
-  //   return this
-  //     .httpClient
-  //     .get<any[]>('https://jsonplaceholder.typicode.com/posts')
-  // }
+  getUserPosts(id): Observable<any[]>{
+    return this
+      .httpClient
+      .get<any[]>(`https://jsonplaceholder.typicode.com/users/${id}/posts`);
+  }
 }
