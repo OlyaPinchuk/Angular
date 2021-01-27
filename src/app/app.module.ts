@@ -10,6 +10,7 @@ import { FullUserComponent } from './components/full-user/full-user.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { HomeComponent } from './components/home/home.component';
 import { PostComponent } from './components/post/post.component';
+import {UserResolveService} from './services/user-resolve.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { PostComponent } from './components/post/post.component';
     HttpClientModule,
     RouterModule.forRoot([
       {path: 'link/home', component: HomeComponent},
-      {path: 'link/users', component: UsersComponent, children: [
+      {path: 'link/users', component: UsersComponent, resolve: {usersData: UserResolveService}, children: [
         {path: ':id', component: FullUserComponent},
         {path: ':id/posts', component: PostsComponent}
         ]},
