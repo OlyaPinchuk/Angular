@@ -9,6 +9,8 @@ export class PostComponent implements OnInit {
 
   @Input()
   post: any;
+  @Input()
+  userPost: any;
   @Output()
   bubbleUpPost = new EventEmitter();
 

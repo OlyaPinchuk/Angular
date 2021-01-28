@@ -12,7 +12,6 @@ export class PostsComponent implements OnInit {
 
   @Input()
   user: any = null;
-  userPosts: any[];
   posts: any[];
   chosenPost: any;
 
@@ -20,11 +19,13 @@ export class PostsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }
-  getPosts(): void {
-    console.log('posts');
     this.postService.getAllPosts().subscribe(value => this.posts = value);
   }
+
+  // getPosts(): void {
+  //   this.postService.getAllPosts().subscribe(value => this.posts = value);
+  // }
+
   getBubbledPost(post: any): void {
     this.chosenPost = post;
   }

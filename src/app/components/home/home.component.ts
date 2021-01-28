@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  displayUsers = false;
+  displayPosts = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
+  showUsers(): void {
+    if (this.displayPosts === true){
+      this.displayPosts = false;
+    }
+    this.displayUsers = !this.displayUsers;
+  }
 
+  showPosts(): void {
+    if (this.displayUsers === true){
+      this.displayUsers = false;
+    }
+    this.displayPosts = !this.displayPosts;
+  }
 }
