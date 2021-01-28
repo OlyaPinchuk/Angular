@@ -16,11 +16,13 @@ export class UsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userService.getAllUsers().subscribe(value => this.users = value);
 
   }
+  getAllUsers(): void {
+    console.log('users');
+    this.userService.getAllUsers().subscribe(value => this.users = value);
+  }
   getBubbleUser(user: User): void {
-    // console.log(user);
     this.chosenUser = user;
   }
 

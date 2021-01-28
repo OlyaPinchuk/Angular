@@ -1,11 +1,12 @@
+<button (click)="getAllUsers()" >SHOW USERS</button>
+
+
 <h3 *ngIf="chosenUser">Here is your chosen user: {{chosenUser?.id}} - {{chosenUser?.name}} - {{chosenUser?.email}} </h3>
 
 <app-user *ngFor = 'let u of users' [user]="u" (bubbleUpUser)="getBubbleUser($event)" >
-
 </app-user>
 
 <div *ngIf="chosenUser">
   <app-posts [user]="chosenUser" ></app-posts>
 </div>
 
-<router-outlet></router-outlet>

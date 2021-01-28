@@ -24,12 +24,12 @@ import { PostComponent } from './components/post/post.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      {path: 'link/home', component: HomeComponent},
-      {path: 'link/users', component: UsersComponent, children: [
-        {path: ':id', component: FullUserComponent}]},
-      {path: 'link/posts', component: PostsComponent}
-    ])
+    // RouterModule.forRoot([
+    //   {path: 'link/home', component: HomeComponent},
+    //   {path: 'link/users', component: UsersComponent, children: [
+    //     {path: ':id', component: FullUserComponent}]},
+    //   {path: 'link/posts', component: PostsComponent}
+    // ])
   ],
   providers: [],
   bootstrap: [AppComponent]
