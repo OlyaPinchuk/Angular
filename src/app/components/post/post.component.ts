@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Post} from '../../models/';
 
 @Component({
   selector: 'app-post',
@@ -8,9 +9,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export class PostComponent implements OnInit {
 
   @Input()
-  post: any;
-  @Input()
-  userPost: any;
+  post: Post;
   @Output()
   bubbleUpPost = new EventEmitter();
 
@@ -18,9 +17,7 @@ export class PostComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  getPost(post: any): void {
+  getPost(post: Post): void {
     this.bubbleUpPost.emit(post);
   }
-
 }

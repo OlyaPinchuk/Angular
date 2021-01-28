@@ -1,5 +1,5 @@
 import {Component, Input, Output, OnInit} from '@angular/core';
-import {User} from '../../models/User';
+import {User} from '../../models';
 import {EventEmitter} from '@angular/core';
 
 @Component({
@@ -13,6 +13,8 @@ export class UserComponent implements OnInit {
   user: User;
   @Output()
   bubbleUpUser = new EventEmitter();
+  @Output()
+  chooseUser = new EventEmitter();
 
   constructor() { }
 
@@ -22,6 +24,7 @@ export class UserComponent implements OnInit {
   getUser(user: User): void {
     this.bubbleUpUser.emit(user);
   }
-
-
+  chooseUserForDetails(user: User): void {
+    this.chooseUser.emit(user);
+  }
 }

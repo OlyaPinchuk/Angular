@@ -1,13 +1,12 @@
-<!--<button *ngIf="!user" (click)="getPosts()">SHOW POSTS</button>-->
 <hr/>
 
 <h3 *ngIf="chosenPost">Here is your chosen post: {{chosenPost.id}} - {{chosenPost.title}} </h3>
 
 <h4 *ngIf="user">These are the posts of: {{user.name}}
-  <h5 *ngFor="let item of posts">
+  <h4 *ngFor="let item of posts">
     <app-post *ngIf="item.userId === user.id" [post]="item" (bubbleUpPost)="getBubbledPost($event)">
     </app-post>
-  </h5>
+  </h4>
 </h4>
 
 <div *ngIf="!user">

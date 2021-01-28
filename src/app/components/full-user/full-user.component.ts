@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {User} from '../../models/User';
-import {ActivatedRoute} from '@angular/router';
-import {UserService} from '../../services/user.service';
+import {User} from '../../models';
+import {UserService} from '../../services';
 
 @Component({
   selector: 'app-full-user',
@@ -10,16 +9,13 @@ import {UserService} from '../../services/user.service';
 })
 export class FullUserComponent implements OnInit {
 
+  @Input()
   fullUser: User;
 
-  constructor(private activatedRoute: ActivatedRoute, private userService: UserService) {
-    // console.log(this.activatedRoute.params);
+  constructor(private userService: UserService) {
   }
 
   ngOnInit(): void {
-     this.activatedRoute.params.subscribe(value => {
-       this.userService.getUserById(value.id).subscribe(result => this.fullUser = result);
-     }) ;
   }
 
 }
