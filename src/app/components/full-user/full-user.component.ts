@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from '../../models/User';
 import {ActivatedRoute} from '@angular/router';
-import {UserService} from '../../services/user.service';
+import {UserService} from '../../services';
 
 @Component({
   selector: 'app-full-user',
@@ -13,7 +13,6 @@ export class FullUserComponent implements OnInit {
   fullUser: User;
 
   constructor(private activatedRoute: ActivatedRoute, private userService: UserService) {
-    // console.log(this.activatedRoute.params);
   }
 
   ngOnInit(): void {

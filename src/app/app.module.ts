@@ -10,6 +10,7 @@ import { FullUserComponent } from './components/full-user/full-user.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { HomeComponent } from './components/home/home.component';
 import { PostComponent } from './components/post/post.component';
+import { FullPostComponent } from './components/full-post/full-post.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { PostComponent } from './components/post/post.component';
     PostsComponent,
     HomeComponent,
     PostComponent,
+    FullPostComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,9 +30,13 @@ import { PostComponent } from './components/post/post.component';
       {path: 'link/home', component: HomeComponent},
       {path: 'link/users', component: UsersComponent, children: [
         {path: ':id', component: FullUserComponent},
-        {path: ':id/posts', component: PostsComponent}
+        {path: ':id/posts', component: PostsComponent, children: [
+            {path: ':id', component: FullPostComponent}
+          ]}
         ]},
-      {path: 'link/posts', component: PostsComponent}
+      {path: 'link/posts', component: PostsComponent, children: [
+          {path: ':id', component: FullPostComponent}
+        ]}
     ])
   ],
   providers: [],

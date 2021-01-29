@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {User} from '../../models/User';
-import {UserService} from '../../services/user.service';
+import {User} from '../../models/';
+import {UserService} from '../../services';
 
 @Component({
   selector: 'app-users',
@@ -20,7 +20,6 @@ export class UsersComponent implements OnInit {
 
   }
   getBubbleUser(user: User): void {
-    // console.log(user);
     this.chosenUser = user;
   }
 

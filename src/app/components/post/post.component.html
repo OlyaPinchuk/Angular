@@ -1,2 +1,5 @@
-<div>{{post?.id}} - {{post?.title}} - <button (click)="getPost(post)" >chose</button>
+<div>
+  {{post?.id}} -
+  {{post?.title}} -
+  <a [routerLink]="[post.id]" >details</a>
 </div>

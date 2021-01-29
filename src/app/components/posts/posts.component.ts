@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {UserService} from '../../services/user.service';
 import {ActivatedRoute} from '@angular/router';
+import {Post, User} from '../../models';
+import {PostService} from '../../services';
 
 
 @Component({
@@ -11,19 +12,19 @@ import {ActivatedRoute} from '@angular/router';
 export class PostsComponent implements OnInit {
 
   @Input()
-  user: any = null;
-  userPosts: any[];
-  posts: any[];
-  chosenPost: any;
+  user: User = null;
+  userPosts: Post[];
+  posts: Post[];
+  chosenPost: Post;
 
-  constructor(private postService: UserService, private activatedRoute: ActivatedRoute) {
+  constructor(private postService: PostService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
       this.postService.getAllPosts().subscribe(value => this.posts = value);
       this.activatedRoute.params.subscribe(value => {
         this.postService.getUserPosts(value.id).subscribe(result => this.userPosts = result);
-      })
+      });
   }
 
   getBubbledPost(post: any): void {
