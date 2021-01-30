@@ -1,23 +1,13 @@
-<h3 *ngIf="chosenPost">Here is your chosen post: {{chosenPost?.id}} - {{chosenPost?.title}} </h3>
-<!--<h4 *ngIf="user" >These are the posts of: {{user?.name}}</h4>-->
-
-<!--<h5 *ngFor="let item of posts">-->
-<!--  <app-post *ngIf="user && item.userId === user.id" [post]="item" (bubbleUpPost)="getBubbledPost($event)">-->
-
-<!--  </app-post>-->
-<!--</h5>-->
 
 <hr/>
 
 <router-outlet></router-outlet>
 
+<!--<h3 *ngIf="userPosts?.length > 1"> These are the posts of a chosen user:-->
+<!--    <app-post *ngFor="let item of userPosts" [post]="item"></app-post>-->
+<!--</h3>-->
 
-<h3 *ngIf="userPosts?.length > 1"> These are the posts of a chosen user:
-    <app-post *ngFor="let item of userPosts" [post]="item" (bubbleUpPost)="getBubbledPost($event)"></app-post>
-</h3>
-
-
-<div *ngIf="userPosts?.length < 1">
-  <app-post *ngFor="let item of posts" [post]="item" (bubbleUpPost)="getBubbledPost($event)" ></app-post>
-</div>
+<!--<div *ngIf="userPosts?.length < 1">-->
+  <app-post *ngFor="let item of posts" [post]="item" ></app-post>
+<!--</div>-->
 

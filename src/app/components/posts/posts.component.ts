@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {UserService} from '../../services/user.service';
 import {ActivatedRoute} from '@angular/router';
+import {Post, User} from '../../models';
 
 
 @Component({
@@ -10,11 +10,10 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class PostsComponent implements OnInit {
 
-  @Input()
-  user: any = null;
-  userPosts: any[];
-  posts: any[];
-  chosenPost: any;
+  // @Input()
+  // user: User = null;
+  // userPosts: Post[];
+  posts: Post[];
 
   constructor(private activatedRoute: ActivatedRoute) {
   }
@@ -25,7 +24,4 @@ export class PostsComponent implements OnInit {
       });
   }
 
-  getBubbledPost(post: any): void {
-    this.chosenPost = post;
-  }
 }

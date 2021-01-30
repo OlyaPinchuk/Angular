@@ -1,6 +1,5 @@
 import {Component, Input, Output, OnInit} from '@angular/core';
 import {User} from '../../models/User';
-import {EventEmitter} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -24,6 +23,5 @@ export class UserComponent implements OnInit {
       state: this.user});
 
   }
-
 
 }
