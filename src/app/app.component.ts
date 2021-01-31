@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'this is the page of my angular app';
+
+  checkInput(myInput: HTMLInputElement): void {
+    console.log(myInput);
+  }
 }
