@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
+import {AbstractControl, FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +21,7 @@ export class AppComponent {
   // }
 // ===============================================================================
 
-  name = new FormControl('', [Validators.required, Validators.minLength(5)]);
+  name = new FormControl('', [Validators.required, Validators.minLength(5), this.fukcValidator]);
   age = new FormControl('', Validators.required);
 
   myForm = new FormGroup({
@@ -31,6 +31,14 @@ export class AppComponent {
 
   submitForm(): void {
     console.log(this.myForm);
+  }
+
+  fukcValidator(inputData: AbstractControl): any {
+    console.log(inputData.value);
+    if (inputData.value.includes('fukc')){
+      return {error: true, text: 'fukc presented here'};
+    }
+    return null;
   }
 
 }

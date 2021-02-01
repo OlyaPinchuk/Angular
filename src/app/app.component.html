@@ -12,10 +12,14 @@
 <form [formGroup]="myForm" (ngSubmit)="submitForm()">
   <div>
     <input [formControl] = "name" >
+    <div *ngIf="name.errors?.required" >required input</div>
+    <div>min length: 10</div>
   </div>
 
   <div>
-    <input [formControl] = "age" >
+    <input type = "number"
+      [formControl] = "age" >
   </div>
-  <button [disabled]="myForm.invalid">save</button>
+  <button>save</button>
+<!--  <button [disabled]="myForm.invalid">save</button>-->
 </form>
