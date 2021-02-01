@@ -1,1 +1,21 @@
-<input #myInput [(ngModel)]="title" (input)="checkInput(myInput)" >
+<!--<input #myInput [(ngModel)]="title" (input)="checkInput(myInput)" >-->
+<!--<div>{{myInput.value}}</div>-->
+<!--===================================================-->
+
+<!--<form #myForm = 'ngForm' (ngSubmit)="checkForm(myForm)" >-->
+<!--  <input [(ngModel)]="user.name" [name]="'name'">-->
+<!--  <input [(ngModel)]="user.age" [name]="'age'" >-->
+<!--  <button>save</button>-->
+<!--</form>-->
+<!--===================================================-->
+
+<form [formGroup]="myForm" (ngSubmit)="submitForm()">
+  <div>
+    <input [formControl] = "name" >
+  </div>
+
+  <div>
+    <input [formControl] = "age" >
+  </div>
+  <button [disabled]="myForm.invalid">save</button>
+</form>
