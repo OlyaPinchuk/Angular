@@ -1,0 +1,14 @@
+
+<form [formGroup]="myForm" (ngSubmit)="checkForm()">
+  <div>
+      <input formControlName="userName" >
+  </div>
+
+  <div>
+      <input formControlName="password" >
+  </div>
+
+  <button>log in</button>
+</form>
+
+<app-users *ngIf="validation" ></app-users>

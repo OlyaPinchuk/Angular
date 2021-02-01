@@ -15,7 +15,7 @@ import {HttpClientModule} from '@angular/common/http';
     UserRoutingModule,
     HttpClientModule
   ],
-  exports: [HttpClientModule],
+  exports: [HttpClientModule, UsersComponent],
   providers: [UserService]
 })
 export class UserModule { }
