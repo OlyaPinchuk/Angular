@@ -27,7 +27,7 @@ export class AppComponent {
   user: IUser;
   usersList: IUser[] = [];
 
-  name = new FormControl('', [Validators.required, Validators.minLength(5), this.fukcValidator]);
+  name = new FormControl('', [Validators.required, this.fukcValidator]);
   age = new FormControl('', Validators.required);
 
   myForm = new FormGroup({
