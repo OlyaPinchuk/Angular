@@ -3,22 +3,18 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {RouterModule} from '@angular/router';
-import {MainComponent} from './components/main/main.component';
 
-// import {UserModule} from './aa/user.module';
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      {path: '', component: MainComponent},
+      // {path: '', component: AppComponent},
       {path: 'users', loadChildren: () => import('./user/user.module').then(m => m.UserModule)},
-      {path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)}
+      {path: 'posts', loadChildren: () => import('./posts/posts.module').then(m => m.PostsModule)},
     ])
-    // UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
