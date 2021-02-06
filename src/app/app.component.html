@@ -1,7 +1,9 @@
+<!--#1-->
 <!--<input #myInput [(ngModel)]="title" (input)="checkInput(myInput)" >-->
 <!--<div>{{myInput.value}}</div>-->
 <!--===================================================-->
 
+<!--#2-->
 <!--<form #myForm = 'ngForm' (ngSubmit)="checkForm(myForm)" >-->
 <!--  <input [(ngModel)]="user.name" [name]="'name'">-->
 <!--  <input [(ngModel)]="user.age" [name]="'age'" >-->
@@ -9,11 +11,12 @@
 <!--</form>-->
 <!--===================================================-->
 
-<form [formGroup]="myForm" (ngSubmit)="submitForm()">
+<!--#3-->
+<form [formGroup]="myForm" (ngSubmit)="handleFormSubmit()">
   <div>
-    <input [formControl] = "name" >
+    <input [formControl] = "name">
     <div *ngIf="name.errors?.required" >required input</div>
-    <div>min length: 10</div>
+<!--    <div>min length: 10</div>-->
   </div>
 
   <div>
@@ -23,3 +26,10 @@
   <button>save</button>
 <!--  <button [disabled]="myForm.invalid">save</button>-->
 </form>
+
+<hr>
+<div *ngIf="usersList">
+  <div *ngFor="let item of usersList">
+    {{item.userName}} - {{item.userAge}}
+  </div>
+</div>
