@@ -2,21 +2,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { UsersComponent } from './users/users.component';
-import { UserComponent } from './user/user.component';
-import { CarsComponent } from './cars/cars.component';
-import { CarComponent } from './car/car.component';
+import { AComponent } from './a/a.component';
+import { BComponent } from './b/b.component';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent,
-    UserComponent,
-    CarsComponent,
-    CarComponent
+    AComponent,
+    BComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot([
+      {path: 'a', component: AComponent},
+      {path: 'b', component: BComponent},
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
