@@ -10,7 +10,7 @@ export class FullPostComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('hi')
+    console.log('hi');
   }
 
 }
