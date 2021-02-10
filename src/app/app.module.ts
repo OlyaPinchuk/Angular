@@ -2,23 +2,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { UsersComponent } from './users/users.component';
-import { UserComponent } from './user/user.component';
-import { CarsComponent } from './cars/cars.component';
-import { CarComponent } from './car/car.component';
+import { MainComponent } from './components/main/main.component';
+import { DateComponent } from './components/date/date.component';
+import {HttpClientModule} from '@angular/common/http';
+import { CurrencyComponent } from './components/currency/currency.component';
+import {DatePipe} from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent,
-    UserComponent,
-    CarsComponent,
-    CarComponent
+    MainComponent,
+    DateComponent,
+    CurrencyComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
