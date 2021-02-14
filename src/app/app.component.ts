@@ -1,3 +1,4 @@
+// класна робота, вивести валюти, НЕЗАКІНЧЕНА
 import { Component } from '@angular/core';
 
 @Component({
