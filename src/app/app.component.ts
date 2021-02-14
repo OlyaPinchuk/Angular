@@ -1,4 +1,7 @@
+// класна робота, робота з апішкою, виведенням, постом машинок, НЕЗАКІНЧЕНА
+
 import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
