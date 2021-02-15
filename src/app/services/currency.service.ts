@@ -9,8 +9,7 @@ import {DatePipe} from '@angular/common';
 })
 export class CurrencyService {
 
-  data = new BehaviorSubject(0);
-
+  data = new BehaviorSubject<object>(null);
   date;
 
   constructor(private httpClient: HttpClient, private datePipe: DatePipe ) {
@@ -18,28 +17,17 @@ export class CurrencyService {
 
   setCurrentDate(): void {
     this.date = new Date();
-    this.date = this.datePipe.transform(this.date, 'yyyyMMdd');
     this.data.next(this.date);
-    console.log(this.data.getValue());
-
   }
 
   decrementDate(): void {
-    if (this.data.getValue().toString() === this.datePipe.transform((new Date(new Date().setDate(new Date().getDate() - 1))), 'yyyyMMdd')) {
-      this.date = new Date(new Date().setDate(new Date().getDate() - 2));
-      this.date = this.datePipe.transform(this.date, 'yyyyMMdd');
-      this.data.next(this.date);
-
-    } else {
-      this.date = new Date(new Date().setDate(new Date().getDate() - 1));
-      this.date = this.datePipe.transform(this.date, 'yyyyMMdd');
-      this.data.next(this.date);
-    }
-    console.log(this.data.getValue());
+    this.date = new Date(this.date.setDate(this.date.getDate() - 1));
+    this.data.next(this.date);
   }
 
-
   getCurrencies(): Observable<ICurrency[]>{
-    return this.httpClient.get<ICurrency[]>(`https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=${this.data.getValue()}&json`);
+    const day = this.datePipe.transform(this.date, 'yyyyMMdd');
+    return this
+      .httpClient.get<ICurrency[]>(`https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=${day}&json`);
   }
 }

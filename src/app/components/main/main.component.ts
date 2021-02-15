@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {CurrencyService} from '../../services/currency.service';
 import {ICurrency} from '../../interfaces';
 
@@ -9,11 +9,14 @@ import {ICurrency} from '../../interfaces';
 })
 export class MainComponent implements OnInit {
 
+  date;
   currencyList: ICurrency[];
 
   constructor(private currencyService: CurrencyService) { }
 
   ngOnInit(): void {
+    this.date = this.currencyService.data.getValue();
+    console.log(this.date);
     this.currencyService.getCurrencies().subscribe(value => this.currencyList = value);
   }
 

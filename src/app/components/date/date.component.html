@@ -1,2 +1,8 @@
 <button (click)="decrementDate()">this is button</button>
 <div *ngIf="date">{{date}}</div>
+
+<hr>
+<div *ngIf="currencies" >
+  <app-currency *ngFor="let item of currencies" [currency]="item" >
+  </app-currency>
+</div>
